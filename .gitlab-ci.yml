@@ -1,5 +1,4 @@
-#image: gitlab/dind
-
+# block 1
 variables:
   VERSION: "1.0"
   NAME: "log-tthcc"
@@ -8,25 +7,25 @@ variables:
   DOCKER_HUB: "neac/log-tthcc"
   DOCKER_USERNAME: deam2k
   DOCKER_PASSWORD: Docker1234
+# end block 1
 
-# services:
-#   - docker:dind
-
+# block 2
 before_script:
   - git --version
   - mvn -version
   - docker info
+# end block 2
 
+# block 3
 stages:
   - setup
   - test
   - build
   - clear
   - deployment
+# end block 3
 
-# before_script:
-#   - export PATH=$PATH:/usr/bin:/etc/docker
-
+# block 4
 # Pull code ve
 Setup EnviromentDesktop job: 
   stage: setup
@@ -41,7 +40,9 @@ Setup EnviromentDesktop job:
     - exit
   only:
     - sonnv
+# end block 4
 
+# block 5
 test: 
   stage: test
   script:
@@ -58,7 +59,9 @@ BuildAPP API job:
     - exit
   only: 
     - sonnv
+# end block 5
 
+# block 6
 # # # Clear fo
 ClearAPP API job: 
   stage: clear
@@ -70,7 +73,9 @@ ClearAPP API job:
     - exit
   only: 
     - sonnv
+# end block 6
 
+# block 7
 # #Run API
 Deploy API job:
   stage: deployment
@@ -82,3 +87,4 @@ Deploy API job:
   when: always
   only: 
     - sonnv
+# end block 7
